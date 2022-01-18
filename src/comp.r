@@ -115,3 +115,44 @@ cor(numeric$Income, numeric$MntFruits, method ="pearson")
 cor(numeric$Income, numeric$MntMeatProducts, method ="pearson")
 cor(numeric$Income, numeric$MntFishProducts, method ="pearson")
 cor(numeric$Income, numeric$MntSweetProducts, method ="pearson")
+
+##Beginning Hypothesis 2
+
+#Graphing individual variables
+
+#Age vs discount purchase
+ggplot(data=comp_data, aes(x=Year_Birth, y=NumDealsPurchases)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Number of purchases made with a discount by age")+ xlab("Birth Year (YYYY)")
+
+#Family size vs discount purchase
+
+
+#Marital Status vs discount purchase
+ggplot(data=comp_data, aes(x=Marital_Status, y=NumDealsPurchases)) + geom_line( color="red")+ ggtitle("Number of purchases made with a discount by marital status")+ xlab("Marital Status")
+
+#Education vs discount purchase
+ggplot(data=comp_data, aes(x=Education, y=NumDealsPurchases)) + geom_line( color="red")+ ggtitle("Number of purchases made with a discount by education level")+ xlab("Education Level")
+
+#Location vs discount purchase
+ggplot(data=comp_data, aes(x=Country, y=NumDealsPurchases)) + geom_line( color="red")+ ggtitle("Number of purchases made with a discount by country")+ xlab("Country")
+
+#Income vs discount purchase
+ggplot(data=comp_data, aes(x= Income, y=NumDealsPurchases)) + geom_line( color="red")+ ggtitle("Number of purchases made with a discount by income")+ xlab("Yearly Household Income")
+
+#Individual Correlations
+
+#Age vs discount purchase
+cor(numeric$Year_Birth, numeric$NumDealsPurchases, method ="pearson")
+
+#Family size vs discount purchase
+
+#Marital Status vs discount purchase
+
+#Education vs discount purchase
+
+#Location vs discount purchase
+
+#Income vs discount purchase
+
+##Beginning Hypothesis 3
+
+##Beginning Hypothesis 4
