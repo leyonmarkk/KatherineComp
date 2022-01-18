@@ -33,20 +33,60 @@ corPlot(numeric)
 #Age vs categorial purchases
 ggplot(data=comp_data, aes(x=Year_Birth, y=MntWines)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on wine in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
 
+ggplot(data=comp_data, aes(x=Year_Birth, y=MntFruits)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on fruit in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+
+ggplot(data=comp_data, aes(x=Year_Birth, y=MntMeatProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on meat in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+
+ggplot(data=comp_data, aes(x=Year_Birth, y=MntFishProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on fish in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+
+ggplot(data=comp_data, aes(x=Year_Birth, y=MntSweetProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on sweets in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+
 #Family Size vs categorical purchases
 
 
 #Family Life Cycle vs categorical purchases
 ggplot(data=comp_data, aes(x=Marital_Status, y=MntWines)) + geom_line( color="red") + ggtitle("Amount spent on wine in the past 2 years by marital status") + ylab("Value in USD")+ xlab("Marital Status")
 
+ggplot(data=comp_data, aes(x=Marital_Status, y=MntFruits)) + geom_line( color="red")+ ggtitle("Amount spent on fruit in the past 2 years by marital status") + ylab("Value in USD")+ xlab("Marital Status")
+
+ggplot(data=comp_data, aes(x=Marital_Status, y=MntMeatProducts)) + geom_line( color="red")+ ggtitle("Amount spent on meat in the past 2 years by marital status") + ylab("Value in USD")+ xlab("Marital Status")
+
+ggplot(data=comp_data, aes(x=Marital_Status, y=MntFishProducts)) + geom_line( color="red")+ ggtitle("Amount spent on fish in the past 2 years by marital status") + ylab("Value in USD")+ xlab("Marital Status")
+
+ggplot(data=comp_data, aes(x=Marital_Status, y=MntSweetProducts)) + geom_line( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by marital status") + ylab("Value in USD")+ xlab("Marital Status")
+
 #Education vs categorical purchases
 ggplot(data=comp_data, aes(x=Education, y=MntWines)) + geom_line( color="red")+ ggtitle("Amount spent on wine in the past 2 years by education level") + ylab("Value in USD")+ xlab("Education Level")
+
+ggplot(data=comp_data, aes(x=Education, y=MntFruits)) + geom_line( color="red")+ ggtitle("Amount spent on fruit in the past 2 years by education level") + ylab("Value in USD")+ xlab("Education Level")
+
+ggplot(data=comp_data, aes(x=Education, y=MntMeatProducts)) + geom_line( color="red")+ ggtitle("Amount spent on meat in the past 2 years by education level") + ylab("Value in USD")+ xlab("Education Level")
+
+ggplot(data=comp_data, aes(x=Education, y=MntFishProducts)) + geom_line( color="red")+ ggtitle("Amount spent on fish in the past 2 years by education level") + ylab("Value in USD")+ xlab("Education Level")
+
+ggplot(data=comp_data, aes(x=Education, y=MntSweetProducts)) + geom_line( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by education level") + ylab("Value in USD")+ xlab("Education Level")
 
 #Location vs categorical purchases
 ggplot(data=comp_data, aes(x=Country, y=MntWines)) + geom_line( color="red")+ ggtitle("Amount spent on wine in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
 
+ggplot(data=comp_data, aes(x=Country, y=MntFruits)) + geom_line( color="red")+ ggtitle("Amount spent on fruit in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+
+ggplot(data=comp_data, aes(x=Country, y=MntMeatProducts)) + geom_line( color="red")+ ggtitle("Amount spent on meat in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+
+ggplot(data=comp_data, aes(x=Country, y=MntFishProducts)) + geom_line( color="red")+ ggtitle("Amount spent on fish in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+
+ggplot(data=comp_data, aes(x=Country, y=MntSweetProducts)) + geom_line( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+
 #Income vs categorical purchases
-ggplot(data=comp_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by age") + ylab("Value in USD")+ xlab("Income in USD")
+ggplot(data=comp_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+
+ggplot(data=comp_data, aes(x=Income, y=MntFruits)) + geom_line( color="red")+  ggtitle("Amount spent on fruit in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+
+ggplot(data=comp_data, aes(x=Income, y=MntMeatProducts)) + geom_line( color="red")+  ggtitle("Amount spent on meat in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+
+ggplot(data=comp_data, aes(x=Income, y=MntFishProducts)) + geom_line( color="red")+  ggtitle("Amount spent on fish in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+
+ggplot(data=comp_data, aes(x=Income, y=MntSweetProducts)) + geom_line( color="red")+  ggtitle("Amount spent on sweets in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
 
 #individual correlations
 
