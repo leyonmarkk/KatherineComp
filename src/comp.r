@@ -10,6 +10,7 @@ cat("\014") # clear the console
 # adding libraries here
 library(tidyverse)
 library(ggplot2)
+library(stringr)
 
 # install.packages("psych")
 library(psych)
@@ -20,6 +21,9 @@ View(full_data)
 #import cleaned dataset with variables for project
 clean_data <- read.csv(file.choose())
 View(clean_data)
+
+#creating a combined family size column
+family_size <- str_c(clean_data$Kidhome, '', clean_data$Teenhome)
 
 #filter out a subset of data with only numerical values
 numeric <- select(clean_data, -(Country), -(Education), -(Marital_Status))
