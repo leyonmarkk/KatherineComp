@@ -17,11 +17,12 @@ library(psych)
 # Load CSV data
 full_data <- read.csv(file.choose())
 View(full_data)
-#filter out variables being used for project
-comp_data <- select(full_data, -(ID), -(Dt_Customer), -(Recency), -(MntGoldProds), -(NumWebVisitsMonth), -(AcceptedCmp3), -(AcceptedCmp4), -(AcceptedCmp5), -(AcceptedCmp1), -(AcceptedCmp2), -(Response), -(Complain))
+#import cleaned dataset with variables for project
+clean_data <- read.csv(file.choose())
+View(clean_data)
 
 #filter out a subset of data with only numerical values
-numeric <- select(comp_data, -(Country), -(Education), -(Marital_Status))
+numeric <- select(clean_data, -(Country), -(Education), -(Marital_Status))
 
 #full correlation set via cor plot
 corPlot(numeric)
