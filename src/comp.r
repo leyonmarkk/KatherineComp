@@ -11,9 +11,8 @@ cat("\014") # clear the console
 library(tidyverse)
 library(ggplot2)
 library(stringr)
-
-# install.packages("psych")
 library(psych)
+library(plyr)
 
 # Load CSV data
 full_data <- read.csv(file.choose())
@@ -29,7 +28,6 @@ family_size <- str_c(clean_data$Kidhome, '', clean_data$Teenhome)
 numeric <- select(clean_data, -(Country), -(Education), -(Marital_Status))
 
 #assigning numeric values to character strings
-library(plyr)
 clean_data$Education<- revalue(clean_data$Education, c("High School"="1", "Bachelor"="2", "Master"="3", "PhD"="4"))
 
 #full correlation set via cor plot
