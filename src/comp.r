@@ -99,15 +99,15 @@ ggplot(data=clean_data, aes(x=Country, y=MntFishProducts)) + geom_point( color="
 ggplot(data=clean_data, aes(x=Country, y=MntSweetProducts)) + geom_point( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
 
 #Income vs categorical purchases
-ggplot(data=clean_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+ggplot(data=clean_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45))
 
-ggplot(data=clean_data, aes(x=Income, y=MntFruits)) + geom_line( color="red")+  ggtitle("Amount spent on fruit in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+ggplot(data=clean_data, aes(x=Income, y=MntFruits)) + geom_line( color="red")+  ggtitle("Amount spent on fruit in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))
 
-ggplot(data=clean_data, aes(x=Income, y=MntMeatProducts)) + geom_line( color="red")+  ggtitle("Amount spent on meat in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+ggplot(data=clean_data, aes(x=Income, y=MntMeatProducts)) + geom_line( color="red")+  ggtitle("Amount spent on meat in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))
 
-ggplot(data=clean_data, aes(x=Income, y=MntFishProducts)) + geom_line( color="red")+  ggtitle("Amount spent on fish in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+ggplot(data=clean_data, aes(x=Income, y=MntFishProducts)) + geom_line( color="red")+  ggtitle("Amount spent on fish in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))
 
-ggplot(data=clean_data, aes(x=Income, y=MntSweetProducts)) + geom_line( color="red")+  ggtitle("Amount spent on sweets in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")
+ggplot(data=clean_data, aes(x=Income, y=MntSweetProducts)) + geom_line( color="red")+  ggtitle("Amount spent on sweets in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45))
 
 #individual correlations and regressions
 
@@ -344,19 +344,22 @@ summary(modFour)
 summary(modFive)
 
 clean_data %>% ggplot(aes(x = MntWines, y = Income)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm) +
+  theme(axis.text.x = element_text(angle = 45))
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Income) +
-                        geom_point(alpha = I(1/4)) + geom_smooth(method = lm))
+clean_data %>% ggplot(aes(x = MntFruits, y = Income) + geom_point(alpha = I(1/4)) + geom_smooth(method = lm))+ theme(axis.text.x = element_text(angle = 45))
 
 clean_data %>% ggplot(aes(x = MntMeatProducts, y = Income)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)+
+  theme(axis.text.x = element_text(angle = 45))
 
 clean_data %>% ggplot(aes(x = MntFishProducts, y = Income)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)+
+  theme(axis.text.x = element_text(angle = 45))
 
 clean_data %>% ggplot(aes(x = MntSweetProducts, y = Income)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)+
+  theme(axis.text.x = element_text(angle = 45))
 
 ##Beginning Hypothesis 2
 
@@ -378,7 +381,7 @@ ggplot(data=clean_data, aes(x=Education, y=NumDealsPurchases)) + geom_point( col
 ggplot(data=clean_data, aes(x=Country, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by country")+ xlab("Country")
 
 #Income vs discount purchase
-ggplot(data=clean_data, aes(x= Income, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by income")+ xlab("Yearly Household Income")
+ggplot(data=clean_data, aes(x= Income, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by income")+ xlab("Yearly Household Income") + theme(axis.text.x = element_text(angle = 45))
 
 #Individual Correlations and regressions
 
@@ -411,5 +414,7 @@ clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Income)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 ##Beginning Hypothesis 3
+
+
 
 ##Beginning Hypothesis 4
