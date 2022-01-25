@@ -44,15 +44,15 @@ corPlot(clean_data)
 #Graphing individual variables
 
 #Age vs categorial purchases
-ggplot(data=clean_data, aes(x=Year_Birth, y=MntWines)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on wine in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Year_Birth, y=MntWines)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on wine in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")+ geom_vline(xintercept = 1946, color ="blue")+ geom_vline(xintercept = 1965, color ="blue")+ geom_vline(xintercept = 1977, color ="blue")+ geom_vline(xintercept = 1995, color ="blue")
 
-ggplot(data=clean_data, aes(x=Year_Birth, y=MntFruits)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on fruit in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Year_Birth, y=MntFruits)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on fruit in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")+ geom_vline(xintercept = 1946, color ="blue")+ geom_vline(xintercept = 1965, color ="blue")+ geom_vline(xintercept = 1977, color ="blue")+ geom_vline(xintercept = 1995, color ="blue")
 
-ggplot(data=clean_data, aes(x=Year_Birth, y=MntMeatProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on meat in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Year_Birth, y=MntMeatProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on meat in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")+ geom_vline(xintercept = 1946, color ="blue")+ geom_vline(xintercept = 1965, color ="blue")+ geom_vline(xintercept = 1977, color ="blue")+ geom_vline(xintercept = 1995, color ="blue")
 
-ggplot(data=clean_data, aes(x=Year_Birth, y=MntFishProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on fish in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Year_Birth, y=MntFishProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on fish in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")+ geom_vline(xintercept = 1946, color ="blue")+ geom_vline(xintercept = 1965, color ="blue")+ geom_vline(xintercept = 1977, color ="blue")+ geom_vline(xintercept = 1995, color ="blue")
 
-ggplot(data=clean_data, aes(x=Year_Birth, y=MntSweetProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on sweets in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Year_Birth, y=MntSweetProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on sweets in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")+ geom_vline(xintercept = 1946, color ="blue")+ geom_vline(xintercept = 1965, color ="blue")+ geom_vline(xintercept = 1977, color ="blue")+ geom_vline(xintercept = 1995, color ="blue")
 
 #Family Size vs categorical purchases
 ggplot(data=clean_data, aes(x=Family_Size, y=MntWines)) + geom_point( color="red")+ ggtitle("Amount spent on wine in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Number of Children at Home")
@@ -99,15 +99,15 @@ ggplot(data=clean_data, aes(x=Country, y=MntFishProducts)) + geom_point( color="
 ggplot(data=clean_data, aes(x=Country, y=MntSweetProducts)) + geom_point( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
 
 #Income vs categorical purchases
-ggplot(data=clean_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45)) + xlim(0, 200000)
+ggplot(data=clean_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45)) + xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
 
-ggplot(data=clean_data, aes(x=Income, y=MntFruits)) + geom_line( color="red")+  ggtitle("Amount spent on fruit in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
+ggplot(data=clean_data, aes(x=Income, y=MntFruits)) + geom_line( color="red")+  ggtitle("Amount spent on fruit in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
 
-ggplot(data=clean_data, aes(x=Income, y=MntMeatProducts)) + geom_line( color="red")+  ggtitle("Amount spent on meat in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
+ggplot(data=clean_data, aes(x=Income, y=MntMeatProducts)) + geom_line( color="red")+  ggtitle("Amount spent on meat in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
 
-ggplot(data=clean_data, aes(x=Income, y=MntFishProducts)) + geom_line( color="red")+  ggtitle("Amount spent on fish in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
+ggplot(data=clean_data, aes(x=Income, y=MntFishProducts)) + geom_line( color="red")+  ggtitle("Amount spent on fish in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
 
-ggplot(data=clean_data, aes(x=Income, y=MntSweetProducts)) + geom_line( color="red")+  ggtitle("Amount spent on sweets in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
+ggplot(data=clean_data, aes(x=Income, y=MntSweetProducts)) + geom_line( color="red")+  ggtitle("Amount spent on sweets in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
 
 #individual correlations and regressions
 
@@ -365,7 +365,7 @@ clean_data %>% ggplot(aes(x = MntSweetProducts, y = Income)) +
 #Graphing individual variables
 
 #Age vs discount purchase
-ggplot(data=clean_data, aes(x=Year_Birth, y=NumDealsPurchases)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Number of purchases made with a discount by age")+ xlab("Birth Year (YYYY)") 
+ggplot(data=clean_data, aes(x=Year_Birth, y=NumDealsPurchases)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Number of purchases made with a discount by age")+ xlab("Birth Year (YYYY)") + geom_vline(xintercept = 1946, color ="blue")+ geom_vline(xintercept = 1965, color ="blue")+ geom_vline(xintercept = 1977, color ="blue")+ geom_vline(xintercept = 1995, color ="blue")
 
 #Family size vs discount purchase
 ggplot(data=clean_data, aes(x=Family_Size, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by number of children at home")+ xlab("Number of Children at Home")
@@ -380,7 +380,7 @@ ggplot(data=clean_data, aes(x=Education, y=NumDealsPurchases)) + geom_point( col
 ggplot(data=clean_data, aes(x=Country, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by country")+ xlab("Country")
 
 #Income vs discount purchase
-ggplot(data=clean_data, aes(x= Income, y=NumDealsPurchases)) + geom_line( color="red")+ ggtitle("Number of purchases made with a discount by income")+ xlab("Yearly Household Income") + theme(axis.text.x = element_text(angle = 45)) +xlim(0, 200000)
+ggplot(data=clean_data, aes(x= Income, y=NumDealsPurchases)) + geom_line( color="red")+ ggtitle("Number of purchases made with a discount by income")+ xlab("Yearly Household Income") + theme(axis.text.x = element_text(angle = 45)) +xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
 
 #Individual Correlations and regressions
 
