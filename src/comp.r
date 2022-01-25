@@ -55,15 +55,15 @@ ggplot(data=clean_data, aes(x=Year_Birth, y=MntFishProducts)) + geom_line( color
 ggplot(data=clean_data, aes(x=Year_Birth, y=MntSweetProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on sweets in the past 2 years by age") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
 
 #Family Size vs categorical purchases
-ggplot(data=clean_data, aes(x=Family_Size, y=MntWines)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on wine in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Family_Size, y=MntWines)) + geom_point( color="red")+ ggtitle("Amount spent on wine in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Number of Children at Home")
 
-ggplot(data=clean_data, aes(x=Family_Size, y=MntFruits)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on fruit in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Family_Size, y=MntFruits)) + geom_point( color="red")+ ggtitle("Amount spent on fruit in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Number of Children at Home")
 
-ggplot(data=clean_data, aes(x=Family_Size, y=MntMeatProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on meat in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Family_Size, y=MntMeatProducts)) + geom_point( color="red")+ ggtitle("Amount spent on meat in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Number of Children at Home")
 
-ggplot(data=clean_data, aes(x=Family_Size, y=MntFishProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on fish in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Family_Size, y=MntFishProducts)) + geom_point( color="red")+ ggtitle("Amount spent on fish in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Number of Children at Home")
 
-ggplot(data=clean_data, aes(x=Family_Size, y=MntSweetProducts)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Amount spent on sweets in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Family_Size, y=MntSweetProducts)) + geom_point( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by number of children at home") + ylab("Value in USD")+ xlab("Number of Children at Home")
 
 #Family Life Cycle vs categorical purchases
 ggplot(data=clean_data, aes(x=Marital_Status, y=MntWines)) + geom_point( color="red") + ggtitle("Amount spent on wine in the past 2 years by marital status") + ylab("Value in USD")+ xlab("Marital Status")
@@ -99,15 +99,15 @@ ggplot(data=clean_data, aes(x=Country, y=MntFishProducts)) + geom_point( color="
 ggplot(data=clean_data, aes(x=Country, y=MntSweetProducts)) + geom_point( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
 
 #Income vs categorical purchases
-ggplot(data=clean_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45))
+ggplot(data=clean_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45)) + xlim(0, 200000)
 
-ggplot(data=clean_data, aes(x=Income, y=MntFruits)) + geom_line( color="red")+  ggtitle("Amount spent on fruit in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))
+ggplot(data=clean_data, aes(x=Income, y=MntFruits)) + geom_line( color="red")+  ggtitle("Amount spent on fruit in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
-ggplot(data=clean_data, aes(x=Income, y=MntMeatProducts)) + geom_line( color="red")+  ggtitle("Amount spent on meat in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))
+ggplot(data=clean_data, aes(x=Income, y=MntMeatProducts)) + geom_line( color="red")+  ggtitle("Amount spent on meat in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
-ggplot(data=clean_data, aes(x=Income, y=MntFishProducts)) + geom_line( color="red")+  ggtitle("Amount spent on fish in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))
+ggplot(data=clean_data, aes(x=Income, y=MntFishProducts)) + geom_line( color="red")+  ggtitle("Amount spent on fish in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD")+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
-ggplot(data=clean_data, aes(x=Income, y=MntSweetProducts)) + geom_line( color="red")+  ggtitle("Amount spent on sweets in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45))
+ggplot(data=clean_data, aes(x=Income, y=MntSweetProducts)) + geom_line( color="red")+  ggtitle("Amount spent on sweets in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
 #individual correlations and regressions
 
@@ -222,8 +222,7 @@ summary(modFive)
 clean_data %>% ggplot(aes(x = MntWines, y = Marital_Status)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Marital_Status) +
-                        geom_point(alpha = I(1/4)) + geom_smooth(method = lm))
+clean_data %>% ggplot(aes(x = MntFruits, y = Marital_Status)) + geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 clean_data %>% ggplot(aes(x = MntMeatProducts, y = Marital_Status)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
@@ -263,8 +262,8 @@ summary(modFive)
 clean_data %>% ggplot(aes(x = MntWines, y = Education)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Education) +
-                        geom_point(alpha = I(1/4)) + geom_smooth(method = lm))
+clean_data %>% ggplot(aes(x = MntFruits, y = Education)) +
+                        geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 clean_data %>% ggplot(aes(x = MntMeatProducts, y = Education)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
@@ -305,8 +304,8 @@ summary(modFive)
 clean_data %>% ggplot(aes(x = MntWines, y = Country)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Country) +
-                        geom_point(alpha = I(1/4)) + geom_smooth(method = lm))
+clean_data %>% ggplot(aes(x = MntFruits, y = Country)) +
+                        geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 clean_data %>% ggplot(aes(x = MntMeatProducts, y = Country)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
@@ -318,15 +317,15 @@ clean_data %>% ggplot(aes(x = MntSweetProducts, y = Country)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Income vs categorical purchases
-cor(clean_data$Income, clean_data$MntWines, method ="pearson")
+cor(clean_data$Income, clean_data$MntWines, method ="pearson", use = "complete.obs")
 t.test(data = clean_data, clean_data$Income, clean_data$MntWines)
-cor(clean_data$Income, clean_data$MntFruits, method ="pearson")
+cor(clean_data$Income, clean_data$MntFruits, method ="pearson", use = "complete.obs")
 t.test(data = clean_data, clean_data$Income, clean_data$MntFruits)
-cor(clean_data$Income, clean_data$MntMeatProducts, method ="pearson")
+cor(clean_data$Income, clean_data$MntMeatProducts, method ="pearson", use = "complete.obs")
 t.test(data = clean_data, clean_data$Income, clean_data$MntMeatProducts)
-cor(clean_data$Income, clean_data$MntFishProducts, method ="pearson")
+cor(clean_data$Income, clean_data$MntFishProducts, method ="pearson", use = "complete.obs")
 t.test(data = clean_data, clean_data$Income, clean_data$MntFishProducts)
-cor(clean_data$Income, clean_data$MntSweetProducts, method ="pearson")
+cor(clean_data$Income, clean_data$MntSweetProducts, method ="pearson", use = "complete.obs")
 t.test(data = clean_data, clean_data$Income, clean_data$MntSweetProducts)
 
 # create the linear models
@@ -347,7 +346,7 @@ clean_data %>% ggplot(aes(x = MntWines, y = Income)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm) +
   theme(axis.text.x = element_text(angle = 45))
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Income) + geom_point(alpha = I(1/4)) + geom_smooth(method = lm))+ theme(axis.text.x = element_text(angle = 45))
+clean_data %>% ggplot(aes(x = MntFruits, y = Income)) + geom_point(alpha = I(1/4))+ geom_smooth(method = lm)+ theme(axis.text.x = element_text(angle = 45))
 
 clean_data %>% ggplot(aes(x = MntMeatProducts, y = Income)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)+
@@ -366,10 +365,10 @@ clean_data %>% ggplot(aes(x = MntSweetProducts, y = Income)) +
 #Graphing individual variables
 
 #Age vs discount purchase
-ggplot(data=clean_data, aes(x=Year_Birth, y=NumDealsPurchases)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Number of purchases made with a discount by age")+ xlab("Birth Year (YYYY)")
+ggplot(data=clean_data, aes(x=Year_Birth, y=NumDealsPurchases)) + geom_line( color="red")+ scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) + ggtitle("Number of purchases made with a discount by age")+ xlab("Birth Year (YYYY)") 
 
 #Family size vs discount purchase
-
+ggplot(data=clean_data, aes(x=Family_Size, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by number of children at home")+ xlab("Number of Children at Home")
 
 #Marital Status vs discount purchase
 ggplot(data=clean_data, aes(x=Marital_Status, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by marital status")+ xlab("Marital Status")
@@ -381,7 +380,7 @@ ggplot(data=clean_data, aes(x=Education, y=NumDealsPurchases)) + geom_point( col
 ggplot(data=clean_data, aes(x=Country, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by country")+ xlab("Country")
 
 #Income vs discount purchase
-ggplot(data=clean_data, aes(x= Income, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by income")+ xlab("Yearly Household Income") + theme(axis.text.x = element_text(angle = 45))
+ggplot(data=clean_data, aes(x= Income, y=NumDealsPurchases)) + geom_line( color="red")+ ggtitle("Number of purchases made with a discount by income")+ xlab("Yearly Household Income") + theme(axis.text.x = element_text(angle = 45)) +xlim(0, 200000)
 
 #Individual Correlations and regressions
 
@@ -396,22 +395,54 @@ clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Year_Birth)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Family size vs discount purchase
+cor(clean_data$Family_Size, clean_data$NumDealsPurchases, method ="pearson")
+t.test(data = clean_data, clean_data$Family_Size, clean_data$NumDealsPurchases)
+# create the linear model
+modOne <- lm(Family_Size ~ NumDealsPurchases,data = clean_data)
+# run the linear model
+summary(modOne)
+clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Family_Size)) +
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Marital Status vs discount purchase
+cor(clean_data$Marital_Status, clean_data$NumDealsPurchases, method ="pearson")
+t.test(data = clean_data, clean_data$Marital_Status, clean_data$NumDealsPurchases)
+# create the linear model
+modOne <- lm(Marital_Status ~ NumDealsPurchases,data = clean_data)
+# run the linear model
+summary(modOne)
+clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Marital_Status)) +
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Education vs discount purchase
+cor(clean_data$Education, clean_data$NumDealsPurchases, method ="pearson")
+t.test(data = clean_data, clean_data$Education, clean_data$NumDealsPurchases)
+# create the linear model
+modOne <- lm(Education ~ NumDealsPurchases,data = clean_data)
+# run the linear model
+summary(modOne)
+clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Education)) +
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Location vs discount purchase
+cor(clean_data$Country, clean_data$NumDealsPurchases, method ="pearson")
+t.test(data = clean_data, clean_data$Country, clean_data$NumDealsPurchases)
+# create the linear model
+modOne <- lm(Country ~ NumDealsPurchases,data = clean_data)
+# run the linear model
+summary(modOne)
+clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Country)) +
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Income vs discount purchase
-cor(clean_data$Income, clean_data$NumDealsPurchases, method ="pearson")
+cor(clean_data$Income, clean_data$NumDealsPurchases, method ="pearson", use= "complete.obs")
 t.test(data = clean_data, clean_data$Income, clean_data$NumDealsPurchases)
 # create the linear model
 modOne <- lm(Income ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOne)
 clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Income)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm) +ylim(0, 200000)
 
 ##Beginning Hypothesis 3
 
