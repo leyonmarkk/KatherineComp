@@ -124,11 +124,11 @@ cor(clean_data$Year_Birth, clean_data$MntSweetProducts, method ="pearson")
 t.test(data = clean_data, clean_data$Year_Birth, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(Year_Birth ~ MntWines,data = clean_data)
-modTwo <- lm(Year_Birth ~ MntFruits,data = clean_data)
-modThree <- lm(Year_Birth ~ MntMeatProducts,data = clean_data)
-modFour <- lm(Year_Birth ~ MntFishProducts,data = clean_data)
-modFive <- lm(Year_Birth ~ MntSweetProducts,data = clean_data)
+modOne <- lm(MntWines ~ Year_Birth,data = clean_data)
+modTwo <- lm(MntFruits ~ Year_Birth,data = clean_data)
+modThree <- lm(MntMeatProducts ~ Year_Birth,data = clean_data)
+modFour <- lm(MntFishProducts ~ Year_Birth,data = clean_data)
+modFive <- lm(MntSweetProducts~ Year_Birth,data = clean_data)
 
 # run the linear model
 summary(modOne)
@@ -137,19 +137,19 @@ summary(modThree)
 summary(modFour)
 summary(modFive)
 
-clean_data %>% ggplot(aes(x = MntWines, y = Year_Birth)) +
+clean_data %>% ggplot(aes(x = Year_Birth, y = MntWines)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Year_Birth)) +
+clean_data %>% ggplot(aes(x = Year_Birth, y = MntFruits)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntMeatProducts, y = Year_Birth)) +
+clean_data %>% ggplot(aes(x = Year_Birth, y = MntMeatProducts )) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFishProducts, y = Year_Birth)) +
+clean_data %>% ggplot(aes(x = Year_Birth, y = MntFishProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntSweetProducts, y = Year_Birth)) +
+clean_data %>% ggplot(aes(x = Year_Birth, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Family Size vs categorical purchases
@@ -165,11 +165,11 @@ cor(clean_data$Family_Size, clean_data$MntSweetProducts, method ="pearson")
 t.test(data = clean_data, clean_data$Family_Size, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(Family_Size ~ MntWines,data = clean_data)
-modTwo <- lm(Family_Size ~ MntFruits,data = clean_data)
-modThree <- lm(Family_Size ~ MntMeatProducts,data = clean_data)
-modFour <- lm(Family_Size ~ MntFishProducts,data = clean_data)
-modFive <- lm(Family_Size ~ MntSweetProducts,data = clean_data)
+modOne <- lm(MntWines ~ Family_Size,data = clean_data)
+modTwo <- lm(MntFruits ~ Family_Size,data = clean_data)
+modThree <- lm(MntMeatProducts ~ Family_Size,data = clean_data)
+modFour <- lm(MntFishProducts ~ Family_Size,data = clean_data)
+modFive <- lm(MntSweetProducts ~ Family_Size,data = clean_data)
 
 # run the linear model
 summary(modOne)
@@ -178,19 +178,19 @@ summary(modThree)
 summary(modFour)
 summary(modFive)
 
-clean_data %>% ggplot(aes(x = MntWines, y = Family_Size)) +
+clean_data %>% ggplot(aes(x = Family_Size, y = MntWines)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Family_Size)) +
+clean_data %>% ggplot(aes(x = Family_Size, y = MntFruits)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntMeatProducts, y = Family_Size)) +
+clean_data %>% ggplot(aes(x = Family_Size, y = MntMeatProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFishProducts, y = Family_Size)) +
+clean_data %>% ggplot(aes(x = Family_Size, y = MntFishProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntSweetProducts, y = Family_Size)) +
+clean_data %>% ggplot(aes(x = Family_Size, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Family Life Cycle vs categorical purchases
@@ -206,11 +206,11 @@ cor(clean_data$Marital_Status, clean_data$MntSweetProducts, method ="pearson")
 t.test(data = clean_data, clean_data$Marital_Status, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(Marital_Status ~ MntWines,data = clean_data)
-modTwo <- lm(Marital_Status ~ MntFruits,data = clean_data)
-modThree <- lm(Marital_Status ~ MntMeatProducts,data = clean_data)
-modFour <- lm(Marital_Status ~ MntFishProducts,data = clean_data)
-modFive <- lm(Marital_Status ~ MntSweetProducts,data = clean_data)
+modOne <- lm(MntWines ~ Marital_Status,data = clean_data)
+modTwo <- lm(MntFruits ~ Marital_Status,data = clean_data)
+modThree <- lm(MntMeatProducts ~ Marital_Status,data = clean_data)
+modFour <- lm(MntFishProducts ~ Marital_Status,data = clean_data)
+modFive <- lm(MntSweetProducts ~ Marital_Status,data = clean_data)
 
 # run the linear model
 summary(modOne)
@@ -219,18 +219,18 @@ summary(modThree)
 summary(modFour)
 summary(modFive)
 
-clean_data %>% ggplot(aes(x = MntWines, y = Marital_Status)) +
+clean_data %>% ggplot(aes(x = Marital_Status, y = MntWines)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Marital_Status)) + geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+clean_data %>% ggplot(aes(x = Marital_Status, y = MntFruits)) + geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntMeatProducts, y = Marital_Status)) +
+clean_data %>% ggplot(aes(x = Marital_Status, y = MntMeatProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFishProducts, y = Marital_Status)) +
+clean_data %>% ggplot(aes(x = Marital_Status, y = MntFishProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntSweetProducts, y = Marital_Status)) +
+clean_data %>% ggplot(aes(x = Marital_Status, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Education vs categorical purchases
@@ -246,11 +246,11 @@ cor(clean_data$Education, clean_data$MntSweetProducts, method ="pearson")
 t.test(data = clean_data, clean_data$Education, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(Education ~ MntWines,data = clean_data)
-modTwo <- lm(Education ~ MntFruits,data = clean_data)
-modThree <- lm(Education ~ MntMeatProducts,data = clean_data)
-modFour <- lm(Education ~ MntFishProducts,data = clean_data)
-modFive <- lm(Education ~ MntSweetProducts,data = clean_data)
+modOne <- lm(MntWines ~ Education,data = clean_data)
+modTwo <- lm(MntFruits ~ Education,data = clean_data)
+modThree <- lm(MntMeatProducts ~ Education,data = clean_data)
+modFour <- lm(MntFishProducts ~ Education,data = clean_data)
+modFive <- lm(MntSweetProducts ~ Education,data = clean_data)
 
 # run the linear model
 summary(modOne)
@@ -259,19 +259,19 @@ summary(modThree)
 summary(modFour)
 summary(modFive)
 
-clean_data %>% ggplot(aes(x = MntWines, y = Education)) +
+clean_data %>% ggplot(aes(x = Education, y = MntWines)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Education)) +
+clean_data %>% ggplot(aes(x = Education, y = MntFruits)) +
                         geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntMeatProducts, y = Education)) +
+clean_data %>% ggplot(aes(x = Education, y = MntMeatProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFishProducts, y = Education)) +
+clean_data %>% ggplot(aes(x = Education, y = MntFishProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntSweetProducts, y = Education)) +
+clean_data %>% ggplot(aes(x = Education, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 
@@ -288,11 +288,11 @@ cor(clean_data$Country, clean_data$MntSweetProducts, method ="pearson")
 t.test(data = clean_data, clean_data$Country, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(Country ~ MntWines,data = clean_data)
-modTwo <- lm(Country ~ MntFruits,data = clean_data)
-modThree <- lm(Country ~ MntMeatProducts,data = clean_data)
-modFour <- lm(Country ~ MntFishProducts,data = clean_data)
-modFive <- lm(Country ~ MntSweetProducts,data = clean_data)
+modOne <- lm(MntWines ~ Country,data = clean_data)
+modTwo <- lm(MntFruits ~ Country,data = clean_data)
+modThree <- lm(MntMeatProducts ~ Country,data = clean_data)
+modFour <- lm(MntFishProducts ~ Country,data = clean_data)
+modFive <- lm(MntSweetProducts ~ Country,data = clean_data)
 
 # run the linear model
 summary(modOne)
@@ -301,19 +301,19 @@ summary(modThree)
 summary(modFour)
 summary(modFive)
 
-clean_data %>% ggplot(aes(x = MntWines, y = Country)) +
+clean_data %>% ggplot(aes(x = Country, y = MntWines)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Country)) +
+clean_data %>% ggplot(aes(x = Country, y = MntFruits)) +
                         geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntMeatProducts, y = Country)) +
+clean_data %>% ggplot(aes(x = Country, y = MntMeatProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntFishProducts, y = Country)) +
+clean_data %>% ggplot(aes(x = Country, y = MntFishProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = MntSweetProducts, y = Country)) +
+clean_data %>% ggplot(aes(x = Country, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Income vs categorical purchases
@@ -329,11 +329,11 @@ cor(clean_data$Income, clean_data$MntSweetProducts, method ="pearson", use = "co
 t.test(data = clean_data, clean_data$Income, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(Income ~ MntWines,data = clean_data)
-modTwo <- lm(Income ~ MntFruits,data = clean_data)
-modThree <- lm(Income ~ MntMeatProducts,data = clean_data)
-modFour <- lm(Income ~ MntFishProducts,data = clean_data)
-modFive <- lm(Income ~ MntSweetProducts,data = clean_data)
+modOne <- lm(Mntwines ~ Income,data = clean_data)
+modTwo <- lm(MntFruits ~ Income,data = clean_data)
+modThree <- lm(MntMeatProducts ~ Income,data = clean_data)
+modFour <- lm(MntFishProducts ~ Income,data = clean_data)
+modFive <- lm(MntSweetProducts ~ Income,data = clean_data)
 
 # run the linear model
 summary(modOne)
@@ -342,23 +342,23 @@ summary(modThree)
 summary(modFour)
 summary(modFive)
 
-clean_data %>% ggplot(aes(x = MntWines, y = Income)) +
+clean_data %>% ggplot(aes(x = Income, y = MntWines)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm) +
-  theme(axis.text.x = element_text(angle = 45))
+  theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
-clean_data %>% ggplot(aes(x = MntFruits, y = Income)) + geom_point(alpha = I(1/4))+ geom_smooth(method = lm)+ theme(axis.text.x = element_text(angle = 45))
+clean_data %>% ggplot(aes(x = Income, y = MntFruits)) + geom_point(alpha = I(1/4))+ geom_smooth(method = lm)+ theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
-clean_data %>% ggplot(aes(x = MntMeatProducts, y = Income)) +
+clean_data %>% ggplot(aes(x = Income, y = MntMeatProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)+
-  theme(axis.text.x = element_text(angle = 45))
+  theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
-clean_data %>% ggplot(aes(x = MntFishProducts, y = Income)) +
+clean_data %>% ggplot(aes(x = Income, y = MntFishProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)+
-  theme(axis.text.x = element_text(angle = 45))
+  theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
-clean_data %>% ggplot(aes(x = MntSweetProducts, y = Income)) +
+clean_data %>% ggplot(aes(x = Income, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)+
-  theme(axis.text.x = element_text(angle = 45))
+  theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)
 
 ##Beginning Hypothesis 2
 
@@ -391,7 +391,7 @@ t.test(data = clean_data, clean_data$Year_Birth, clean_data$NumDealsPurchases)
 modOne <- lm(Year_Birth ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOne)
-clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Year_Birth)) +
+clean_data %>% ggplot(aes(x = Year_Birth, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Family size vs discount purchase
@@ -401,7 +401,7 @@ t.test(data = clean_data, clean_data$Family_Size, clean_data$NumDealsPurchases)
 modOne <- lm(Family_Size ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOne)
-clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Family_Size)) +
+clean_data %>% ggplot(aes(x = Family_Size, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Marital Status vs discount purchase
@@ -411,7 +411,7 @@ t.test(data = clean_data, clean_data$Marital_Status, clean_data$NumDealsPurchase
 modOne <- lm(Marital_Status ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOne)
-clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Marital_Status)) +
+clean_data %>% ggplot(aes(x = Marital_Status, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Education vs discount purchase
@@ -421,7 +421,7 @@ t.test(data = clean_data, clean_data$Education, clean_data$NumDealsPurchases)
 modOne <- lm(Education ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOne)
-clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Education)) +
+clean_data %>% ggplot(aes(x = Education, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Location vs discount purchase
@@ -431,7 +431,7 @@ t.test(data = clean_data, clean_data$Country, clean_data$NumDealsPurchases)
 modOne <- lm(Country ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOne)
-clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Country)) +
+clean_data %>% ggplot(aes(x = Country, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Income vs discount purchase
@@ -441,11 +441,9 @@ t.test(data = clean_data, clean_data$Income, clean_data$NumDealsPurchases)
 modOne <- lm(Income ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOne)
-clean_data %>% ggplot(aes(x = NumDealsPurchases, y = Income)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm) +ylim(0, 200000)
+clean_data %>% ggplot(aes(x = Income, y = NumDealsPurchases)) +
+  geom_point(alpha = I(1/4)) + geom_smooth(method = lm) +xlim(0, 200000)
 
 ##Beginning Hypothesis 3
-
-
 
 ##Beginning Hypothesis 4
