@@ -26,10 +26,21 @@ family_size <- str_c(clean_data$Kidhome, '', clean_data$Teenhome)
 
 #creating new binary columns
 clean_data %>% add_column(marriage_bin = 0) 
-clean_data %>% add_column(otherlove_bin = 0) 
+clean_data %>% add_column(lowed_bin = 0)
+clean_data %>% add_column(highed_bin = 0)
+#clean_data %>% add_column(lowkid_bin = 0)
+#clean_data %>% add_column(highkid_bin = 0)
+clean_data %>% add_column(north_bin = 0)
+clean_data %>% add_column(east_bin = 0)
+clean_data %>% add_column(s_bin = 0)
 
 #assigning binary values to non numeric data
 clean_data$marriage_bin <- ifelse(clean_data$Marital_Status == 'Married', 1, 0)
+clean_data$lowed_bin <- ifelse(clean_data$Education == 'Bachelor', 1, 0)
+clean_data$highed_bin <- ifelse(clean_data$Education == 'PhD', 1, 0)
+clean_data$north_bin <- ifelse(clean_data$Country == 'US', 1, 0)
+clean_data$east_bin <- ifelse(clean_data$Country == 'SA', 1, 0)
+clean_data$s_bin <- ifelse(clean_data$Country == 'IND', 1, 0)
 
 #assigning numeric values to character strings
 clean_data$Education <- revalue(clean_data$Education, c("High School"="1", "Bachelor"="2", "Master"="3", "PhD"="4"))
