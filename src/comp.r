@@ -24,6 +24,13 @@ View(clean_data)
 #creating a combined family size column
 family_size <- str_c(clean_data$Kidhome, '', clean_data$Teenhome)
 
+#creating new binary columns
+clean_data %>% add_column(marriage_bin = 0) 
+clean_data %>% add_column(otherlove_bin = 0) 
+
+#assigning binary values to non numeric data
+clean_data$marriage_bin <- ifelse(clean_data$Marital_Status == 'Married', 1, 0)
+
 #assigning numeric values to character strings
 clean_data$Education <- revalue(clean_data$Education, c("High School"="1", "Bachelor"="2", "Master"="3", "PhD"="4"))
 
