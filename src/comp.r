@@ -24,39 +24,6 @@ View(clean_data)
 #creating a combined family size column
 family_size <- str_c(clean_data$Kidhome, '', clean_data$Teenhome)
 
-#creating new binary columns
-clean_data %>% add_column(marriage_bin = 0) 
-clean_data %>% add_column(lowed_bin = 0)
-clean_data %>% add_column(highed_bin = 0)
-#clean_data %>% add_column(lowkid_bin = 0)
-#clean_data %>% add_column(highkid_bin = 0)
-clean_data %>% add_column(north_bin = 0)
-clean_data %>% add_column(east_bin = 0)
-clean_data %>% add_column(s_bin = 0)
-
-#assigning binary values to non numeric data
-clean_data$marriage_bin <- ifelse(clean_data$Marital_Status == 'Married', 1, 0)
-clean_data$lowed_bin <- ifelse(clean_data$Education == 'Bachelor', 1, 0)
-clean_data$highed_bin <- ifelse(clean_data$Education == 'PhD', 1, 0)
-clean_data$north_bin <- ifelse(clean_data$Country == 'US', 1, 0)
-clean_data$east_bin <- ifelse(clean_data$Country == 'SA', 1, 0)
-clean_data$s_bin <- ifelse(clean_data$Country == 'IND', 1, 0)
-
-#assigning numeric values to character strings
-clean_data$Education <- revalue(clean_data$Education, c("High School"="1", "Bachelor"="2", "Master"="3", "PhD"="4"))
-
-clean_data$Marital_Status <- revalue(clean_data$Education, c("Single"="1", "Together"="2", "Married"="3", "Divorced"="4", "Widow"="5"))
-
-clean_data$Country <- revalue(clean_data$Education, c("AUS"="1", "CA"="2", "GER"="3", "IND"="4", "SA"= "5", "SP"="6", "US"="7"))
-
-#converting char strings to dbl
-clean_data$Education <- as.numeric(as.character(clean_data$Education))
-clean_data$Marital_Status <- as.numeric(as.character(clean_data$Marital_Status))
-clean_data$Country <- as.numeric(as.character(clean_data$Country))
-
-#full correlation set via cor plot
-corPlot(clean_data)
-
 ## Beginning Hypothesis 1
 
 #Graphing individual variables
@@ -106,15 +73,11 @@ ggplot(data=clean_data, aes(x=Education, y=MntFishProducts)) + geom_point( color
 ggplot(data=clean_data, aes(x=Education, y=MntSweetProducts)) + geom_point( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by education level") + ylab("Value in USD")+ xlab("Education Level")
 
 #Location vs categorical purchases
-ggplot(data=clean_data, aes(x=Country, y=MntWines)) + geom_point( color="red")+ ggtitle("Amount spent on wine in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
-
-ggplot(data=clean_data, aes(x=Country, y=MntFruits)) + geom_point( color="red")+ ggtitle("Amount spent on fruit in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
-
-ggplot(data=clean_data, aes(x=Country, y=MntMeatProducts)) + geom_point( color="red")+ ggtitle("Amount spent on meat in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
-
-ggplot(data=clean_data, aes(x=Country, y=MntFishProducts)) + geom_point( color="red")+ ggtitle("Amount spent on fish in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
-
-ggplot(data=clean_data, aes(x=Country, y=MntSweetProducts)) + geom_point( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+#ggplot(data=clean_data, aes(x=Country, y=MntWines)) + geom_point( color="red")+ ggtitle("Amount spent on wine in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+#ggplot(data=clean_data, aes(x=Country, y=MntFruits)) + geom_point( color="red")+ ggtitle("Amount spent on fruit in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+#ggplot(data=clean_data, aes(x=Country, y=MntMeatProducts)) + geom_point( color="red")+ ggtitle("Amount spent on meat in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+#ggplot(data=clean_data, aes(x=Country, y=MntFishProducts)) + geom_point( color="red")+ ggtitle("Amount spent on fish in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
+#ggplot(data=clean_data, aes(x=Country, y=MntSweetProducts)) + geom_point( color="red")+ ggtitle("Amount spent on sweets in the past 2 years by country") + ylab("Value in USD")+ xlab("Country")
 
 #Income vs categorical purchases
 ggplot(data=clean_data, aes(x=Income, y=MntWines)) + geom_line( color="red")+  ggtitle("Amount spent on wine in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45)) + xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
@@ -127,7 +90,7 @@ ggplot(data=clean_data, aes(x=Income, y=MntFishProducts)) + geom_line( color="re
 
 ggplot(data=clean_data, aes(x=Income, y=MntSweetProducts)) + geom_line( color="red")+  ggtitle("Amount spent on sweets in the past 2 years by income") + ylab("Value in USD")+ xlab("Income in USD") + theme(axis.text.x = element_text(angle = 45))+ xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
 
-#individual correlations and regressions
+#Individual correlations and regressions
 
 #Age vs categorical purchases
 cor(clean_data$Year_Birth, clean_data$MntWines, method ="pearson")
@@ -212,23 +175,23 @@ clean_data %>% ggplot(aes(x = Family_Size, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Family Life Cycle vs categorical purchases
-cor(clean_data$Marital_Status, clean_data$MntWines, method ="pearson")
-t.test(data = clean_data, clean_data$Marital_Status, clean_data$MntWines)
-cor(clean_data$Marital_Status, clean_data$MntFruits, method ="pearson")
-t.test(data = clean_data, clean_data$Marital_Status, clean_data$MntFruits)
-cor(clean_data$Marital_Status, clean_data$MntMeatProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Marital_Status, clean_data$MntMeatProducts)
-cor(clean_data$Marital_Status, clean_data$MntFishProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Marital_Status, clean_data$MntFishProducts)
-cor(clean_data$Marital_Status, clean_data$MntSweetProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Marital_Status, clean_data$MntSweetProducts)
+cor(clean_data$MarScore, clean_data$MntWines, method ="pearson")
+t.test(data = clean_data, clean_data$MarScore, clean_data$MntWines)
+cor(clean_data$MarScore, clean_data$MntFruits, method ="pearson")
+t.test(data = clean_data, clean_data$MarScore, clean_data$MntFruits)
+cor(clean_data$MarScore, clean_data$MntMeatProducts, method ="pearson")
+t.test(data = clean_data, clean_data$MarScore, clean_data$MntMeatProducts)
+cor(clean_data$MarScore, clean_data$MntFishProducts, method ="pearson")
+t.test(data = clean_data, clean_data$MarScore, clean_data$MntFishProducts)
+cor(clean_data$MarScore, clean_data$MntSweetProducts, method ="pearson")
+t.test(data = clean_data, clean_data$MarScore, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(MntWines ~ Marital_Status,data = clean_data)
-modTwo <- lm(MntFruits ~ Marital_Status,data = clean_data)
-modThree <- lm(MntMeatProducts ~ Marital_Status,data = clean_data)
-modFour <- lm(MntFishProducts ~ Marital_Status,data = clean_data)
-modFive <- lm(MntSweetProducts ~ Marital_Status,data = clean_data)
+modOne <- lm(MntWines ~ MarScore,data = clean_data)
+modTwo <- lm(MntFruits ~ MarScore,data = clean_data)
+modThree <- lm(MntMeatProducts ~ MarScore,data = clean_data)
+modFour <- lm(MntFishProducts ~ MarScore,data = clean_data)
+modFive <- lm(MntSweetProducts ~ MarScore,data = clean_data)
 
 # run the linear model
 summary(modOne)
@@ -237,38 +200,38 @@ summary(modThree)
 summary(modFour)
 summary(modFive)
 
-clean_data %>% ggplot(aes(x = Marital_Status, y = MntWines)) +
+clean_data %>% ggplot(aes(x = MarScore, y = MntWines)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Marital_Status, y = MntFruits)) + geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+clean_data %>% ggplot(aes(x = MarScore, y = MntFruits)) + geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Marital_Status, y = MntMeatProducts)) +
+clean_data %>% ggplot(aes(x = MarScore, y = MntMeatProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Marital_Status, y = MntFishProducts)) +
+clean_data %>% ggplot(aes(x = MarScore, y = MntFishProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Marital_Status, y = MntSweetProducts)) +
+clean_data %>% ggplot(aes(x = MarScore, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Education vs categorical purchases
-cor(clean_data$Education, clean_data$MntWines, method ="pearson")
-t.test(data = clean_data, clean_data$Education, clean_data$MntWines)
-cor(clean_data$Education, clean_data$MntFruits, method ="pearson")
-t.test(data = clean_data, clean_data$Education, clean_data$MntFruits)
-cor(clean_data$Education, clean_data$MntMeatProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Education, clean_data$MntMeatProducts)
-cor(clean_data$Education, clean_data$MntFishProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Education, clean_data$MntFishProducts)
-cor(clean_data$Education, clean_data$MntSweetProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Education, clean_data$MntSweetProducts)
+cor(clean_data$EdScore, clean_data$MntWines, method ="pearson")
+t.test(data = clean_data, clean_data$EdScore, clean_data$MntWines)
+cor(clean_data$EdScore, clean_data$MntFruits, method ="pearson")
+t.test(data = clean_data, clean_data$EdScore, clean_data$MntFruits)
+cor(clean_data$EdScore, clean_data$MntMeatProducts, method ="pearson")
+t.test(data = clean_data, clean_data$EdScore, clean_data$MntMeatProducts)
+cor(clean_data$EdScore, clean_data$MntFishProducts, method ="pearson")
+t.test(data = clean_data, clean_data$EdScore, clean_data$MntFishProducts)
+cor(clean_data$EdScore, clean_data$MntSweetProducts, method ="pearson")
+t.test(data = clean_data, clean_data$EdScore, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(MntWines ~ Education,data = clean_data)
-modTwo <- lm(MntFruits ~ Education,data = clean_data)
-modThree <- lm(MntMeatProducts ~ Education,data = clean_data)
-modFour <- lm(MntFishProducts ~ Education,data = clean_data)
-modFive <- lm(MntSweetProducts ~ Education,data = clean_data)
+modOne <- lm(MntWines ~ EdScore,data = clean_data)
+modTwo <- lm(MntFruits ~ EdScore,data = clean_data)
+modThree <- lm(MntMeatProducts ~ EdScore,data = clean_data)
+modFour <- lm(MntFishProducts ~ EdScore,data = clean_data)
+modFive <- lm(MntSweetProducts ~ EdScore,data = clean_data)
 
 # run the linear model
 summary(modOne)
@@ -277,62 +240,62 @@ summary(modThree)
 summary(modFour)
 summary(modFive)
 
-clean_data %>% ggplot(aes(x = Education, y = MntWines)) +
+clean_data %>% ggplot(aes(x = EdScore, y = MntWines)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Education, y = MntFruits)) +
+clean_data %>% ggplot(aes(x = EdScore, y = MntFruits)) +
                         geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Education, y = MntMeatProducts)) +
+clean_data %>% ggplot(aes(x = EdScore, y = MntMeatProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Education, y = MntFishProducts)) +
+clean_data %>% ggplot(aes(x = EdScore, y = MntFishProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Education, y = MntSweetProducts)) +
+clean_data %>% ggplot(aes(x = EdScore, y = MntSweetProducts)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 
 #Location vs categorical purchases
-cor(clean_data$Country, clean_data$MntWines, method ="pearson")
-t.test(data = clean_data, clean_data$Country, clean_data$MntWines)
-cor(clean_data$Country, clean_data$MntFruits, method ="pearson")
-t.test(data = clean_data, clean_data$Country, clean_data$MntFruits)
-cor(clean_data$Country, clean_data$MntMeatProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Country, clean_data$MntMeatProducts)
-cor(clean_data$Country, clean_data$MntFishProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Country, clean_data$MntFishProducts)
-cor(clean_data$Country, clean_data$MntSweetProducts, method ="pearson")
-t.test(data = clean_data, clean_data$Country, clean_data$MntSweetProducts)
+#cor(clean_data$Country, clean_data$MntWines, method ="pearson")
+#t.test(data = clean_data, clean_data$Country, clean_data$MntWines)
+#cor(clean_data$Country, clean_data$MntFruits, method ="pearson")
+#t.test(data = clean_data, clean_data$Country, clean_data$MntFruits)
+#cor(clean_data$Country, clean_data$MntMeatProducts, method ="pearson")
+#t.test(data = clean_data, clean_data$Country, clean_data$MntMeatProducts)
+#cor(clean_data$Country, clean_data$MntFishProducts, method ="pearson")
+#t.test(data = clean_data, clean_data$Country, clean_data$MntFishProducts)
+#cor(clean_data$Country, clean_data$MntSweetProducts, method ="pearson")
+#t.test(data = clean_data, clean_data$Country, clean_data$MntSweetProducts)
 
 # create the linear models
-modOne <- lm(MntWines ~ Country,data = clean_data)
-modTwo <- lm(MntFruits ~ Country,data = clean_data)
-modThree <- lm(MntMeatProducts ~ Country,data = clean_data)
-modFour <- lm(MntFishProducts ~ Country,data = clean_data)
-modFive <- lm(MntSweetProducts ~ Country,data = clean_data)
+#modOne <- lm(MntWines ~ Country,data = clean_data)
+#modTwo <- lm(MntFruits ~ Country,data = clean_data)
+#modThree <- lm(MntMeatProducts ~ Country,data = clean_data)
+#modFour <- lm(MntFishProducts ~ Country,data = clean_data)
+#modFive <- lm(MntSweetProducts ~ Country,data = clean_data)
 
 # run the linear model
-summary(modOne)
-summary(modTwo)
-summary(modThree)
-summary(modFour)
-summary(modFive)
+#summary(modOne)
+#summary(modTwo)
+#summary(modThree)
+#summary(modFour)
+#summary(modFive)
 
-clean_data %>% ggplot(aes(x = Country, y = MntWines)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+#clean_data %>% ggplot(aes(x = Country, y = MntWines)) +
+#  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Country, y = MntFruits)) +
-                        geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+#clean_data %>% ggplot(aes(x = Country, y = MntFruits)) +
+#                        geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Country, y = MntMeatProducts)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+#clean_data %>% ggplot(aes(x = Country, y = MntMeatProducts)) +
+ # geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Country, y = MntFishProducts)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+#clean_data %>% ggplot(aes(x = Country, y = MntFishProducts)) +
+#  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
-clean_data %>% ggplot(aes(x = Country, y = MntSweetProducts)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+#clean_data %>% ggplot(aes(x = Country, y = MntSweetProducts)) +
+#  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Income vs categorical purchases
 cor(clean_data$Income, clean_data$MntWines, method ="pearson", use = "complete.obs")
@@ -395,7 +358,7 @@ ggplot(data=clean_data, aes(x=Marital_Status, y=NumDealsPurchases)) + geom_point
 ggplot(data=clean_data, aes(x=Education, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by education level")+ xlab("Education Level")
 
 #Location vs discount purchase
-ggplot(data=clean_data, aes(x=Country, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by country")+ xlab("Country")
+#ggplot(data=clean_data, aes(x=Country, y=NumDealsPurchases)) + geom_point( color="red")+ ggtitle("Number of purchases made with a discount by country")+ xlab("Country")
 
 #Income vs discount purchase
 ggplot(data=clean_data, aes(x= Income, y=NumDealsPurchases)) + geom_line( color="red")+ ggtitle("Number of purchases made with a discount by income")+ xlab("Yearly Household Income") + theme(axis.text.x = element_text(angle = 45)) +xlim(0, 200000)+ geom_vline(xintercept = 50000, color ="blue")+ geom_vline(xintercept = 100000, color ="blue")+ geom_vline(xintercept = 150000, color ="blue")+ geom_vline(xintercept = 200000, color ="blue")
@@ -443,14 +406,14 @@ clean_data %>% ggplot(aes(x = Education, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Location vs discount purchase
-cor(clean_data$Country, clean_data$NumDealsPurchases, method ="pearson")
-t.test(data = clean_data, clean_data$Country, clean_data$NumDealsPurchases)
+#cor(clean_data$Country, clean_data$NumDealsPurchases, method ="pearson")
+#t.test(data = clean_data, clean_data$Country, clean_data$NumDealsPurchases)
 # create the linear model
-modOne <- lm(Country ~ NumDealsPurchases,data = clean_data)
+#modOne <- lm(Country ~ NumDealsPurchases,data = clean_data)
 # run the linear model
-summary(modOne)
-clean_data %>% ggplot(aes(x = Country, y = NumDealsPurchases)) +
-  geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
+#summary(modOne)
+#clean_data %>% ggplot(aes(x = Country, y = NumDealsPurchases)) +
+ # geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Income vs discount purchase
 cor(clean_data$Income, clean_data$NumDealsPurchases, method ="pearson", use= "complete.obs")
