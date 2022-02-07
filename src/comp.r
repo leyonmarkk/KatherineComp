@@ -575,7 +575,7 @@ results1 = mediate(fit.mediator1, fit.dv1, treat='Persona2', mediator='NumWebPur
 
 results2 = mediate(fit.mediator1, fit.dv2, treat='Persona2', mediator='NumWebPurchases', boot=T)
 
-results3 = mediate(fit.mediato1r, fit.dv3, treat='Persona2', mediator='NumWebPurhcases', boot=T)
+results3 = mediate(fit.mediator1, fit.dv3, treat='Persona2', mediator='NumWebPurhcases', boot=T)
 
 results4 = mediate(fit.mediator1, fit.dv4, treat='Persona2', mediator='NumWebPurchases', boot=T)
 
@@ -623,4 +623,84 @@ summary(results15)
 
 #Persona 1:
 
+#Step 1: Total persona score vs individual goods linear regressions
+fit.totaleffect1=lm(NumDealsPurchases~Persona1, data=clean_data)
+summary(fit.totaleffect1)
+
+#Step 2: Linear regressions with mediator (channel method) and personas
+
+fit.mediator1=lm(NumWebPurchases~Persona1, data=clean_data)
+summary(fit.mediator1)
+
+fit.mediator2=lm(NumCatalogPurchases~Persona1, data=clean_data)
+summary(fit.mediator2)
+
+fit.mediator3=lm(NumStorePurchases~Persona1, data=clean_data)
+summary(fit.mediator3)
+
+#Step 3: Linear regressions between mediator (channel method) and individual goods
+
+fit.dv1=lm(NumDealsPurchases~Persona1+NumWebPurchases,data=clean_data)
+summary(fit.dv1)
+
+fit.dv2=lm(NumDealsPurchases~Persona1+NumCatalogPurchases,data=clean_data)
+summary(fit.dv2)
+
+fit.dv3=lm(NunDealsPurchases~Persona1+NumStorePurchases,data=clean_data)
+summary(fit.dv3)
+
+#Step 4: mediation analyses
+
+results1 = mediate(fit.mediator1, fit.dv1, treat='Persona1', mediator='NumWebPurchases', boot=T)
+
+results2 = mediate(fit.mediator2, fit.dv2, treat='Persona1', mediator='NumCatalogPurchases', boot=T)
+
+results3 = mediate(fit.mediator3, fit.dv3, treat='Persona1', mediator='NumStorePurhcases', boot=T)
+
+#Step 5: results
+
+summary(results1)
+summary(results2)
+summary(results3)
+
 #Persona 2:
+
+#Step 1: Total persona score vs individual goods linear regressions
+fit.totaleffect1=lm(NumDealsPurchases~Persona2, data=clean_data)
+summary(fit.totaleffect1)
+
+#Step 2: Linear regressions with mediator (channel method) and personas
+
+fit.mediator1=lm(NumWebPurchases~Persona2, data=clean_data)
+summary(fit.mediator1)
+
+fit.mediator2=lm(NumCatalogPurchases~Persona2, data=clean_data)
+summary(fit.mediator2)
+
+fit.mediator3=lm(NumStorePurchases~Persona2, data=clean_data)
+summary(fit.mediator3)
+
+#Step 3: Linear regressions between mediator (channel method) and individual goods
+
+fit.dv1=lm(NumDealsPurchases~Persona2+NumWebPurchases,data=clean_data)
+summary(fit.dv1)
+
+fit.dv2=lm(NumDealsPurchases~Persona2+NumCatalogPurchases,data=clean_data)
+summary(fit.dv2)
+
+fit.dv3=lm(NunDealsPurchases~Persona2+NumStorePurchases,data=clean_data)
+summary(fit.dv3)
+
+#Step 4: mediation analyses
+
+results1 = mediate(fit.mediator1, fit.dv1, treat='Persona2', mediator='NumWebPurchases', boot=T)
+
+results2 = mediate(fit.mediator2, fit.dv2, treat='Persona2', mediator='NumCatalogPurchases', boot=T)
+
+results3 = mediate(fit.mediator3, fit.dv3, treat='Persona2', mediator='NumStorePurhcases', boot=T)
+
+#Step 5: results
+
+summary(results1)
+summary(results2)
+summary(results3)
