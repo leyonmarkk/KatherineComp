@@ -495,6 +495,132 @@ summary(results15)
 
 #Persona 2:
 
-#Persona 3:
+#Step 1: Total persona score vs individual goods linear regressions
+fit.totaleffect1=lm(MntWines~Persona2, data=clean_data)
+summary(fit.totaleffect1)
+
+fit.totaleffect2=lm(MntFruits~Persona2, data=clean_data)
+summary(fit.totaleffect2)
+
+fit.totaleffect3=lm(MntMeatProducts~Persona2, data=clean_data)
+summary(fit.totaleffect3)
+
+fit.totaleffect4=lm(MntFishProducts~Persona2, data=clean_data)
+summary(fit.totaleffect4)
+
+fit.totaleffect5=lm(MntSweetProducts~Persona2, data=clean_data)
+summary(fit.totaleffect5)
+
+#Step 2: Linear regressions with mediator (channel method) and personas
+
+fit.mediator1=lm(NumWebPurchases~Persona2, data=clean_data)
+summary(fit.mediator1)
+
+fit.mediator2=lm(NumCatalogPurchases~Persona2, data=clean_data)
+summary(fit.mediator2)
+
+fit.mediator3=lm(NumStorePurchases~Persona2, data=clean_data)
+summary(fit.mediator3)
+
+#Step 3: Linear regressions between mediator (channel method) and individual goods
+
+fit.dv1=lm(MntWines~Persona2+NumWebPurchases,data=clean_data)
+summary(fit.dv1)
+
+fit.dv2=lm(MntFruits~Persona2+NumWebPurchases,data=clean_data)
+summary(fit.dv2)
+
+fit.dv3=lm(MntMeatProducts~Persona2+NumWebPurchases,data=clean_data)
+summary(fit.dv3)
+
+fit.dv4=lm(MntFishProducts~Persona2+NumWebPurchases,data=clean_data)
+summary(fit.dv4)
+
+fit.dv5=lm(MntSweetProducts~Persona2+NumWebPurchases,data=clean_data)
+summary(fit.dv5)
+
+fit.dv6=lm(MntWines~Persona2+NumCatalogPurchases,data=clean_data)
+summary(fit.dv6)
+
+fit.dv7=lm(MntFruits~Persona2+NumCatalogPurchases,data=clean_data)
+summary(fit.dv7)
+
+fit.dv8=lm(MntMeatProducts~Persona2+NumCatalogPurchases,data=clean_data)
+summary(fit.dv8)
+
+fit.dv9=lm(MntFishProducts~Persona2+NumCatalogPurchases,data=clean_data)
+summary(fit.dv9)
+
+fit.dv10=lm(MntSweetProducts~Persona2+CatalogPurchases,data=clean_data)
+summary(fit.dv10)
+
+fit.dv11=lm(MntWines~Persona2+NumStorePurchases,data=clean_data)
+summary(fit.dv11)
+
+fit.dv12=lm(MntFruits~Persona2+NumStorePurchases,data=clean_data)
+summary(fit.dv12)
+
+fit.dv13=lm(MntMeatProducts~Persona2+NumStorePurchases,data=clean_data)
+summary(fit.dv13)
+
+fit.dv14=lm(MntFishProducts~Persona2+NumStorePurchases,data=clean_data)
+summary(fit.dv14)
+
+fit.dv15=lm(MntSweetProducts~Persona2+NumStorePurchases,data=clean_data)
+summary(fit.dv15)
+
+#Step 4: mediation analyses
+
+results1 = mediate(fit.mediator1, fit.dv1, treat='Persona2', mediator='NumWebPurchases', boot=T)
+
+results2 = mediate(fit.mediator1, fit.dv2, treat='Persona2', mediator='NumWebPurchases', boot=T)
+
+results3 = mediate(fit.mediato1r, fit.dv3, treat='Persona2', mediator='NumWebPurhcases', boot=T)
+
+results4 = mediate(fit.mediator1, fit.dv4, treat='Persona2', mediator='NumWebPurchases', boot=T)
+
+results5 = mediate(fit.mediator1, fit.dv5, treat='Persona2', mediator='NumWebPurchases', boot=T)
+
+results6 = mediate(fit.mediator2, fit.dv6, treat='Persona2', mediator='NumCatalogPurchases', boot=T)
+
+results7 = mediate(fit.mediator2, fit.dv7, treat='Persona2', mediator='NumCatalogPurchases', boot=T)
+
+results8 = mediate(fit.mediator2, fit.dv8, treat='Persona2', mediator='NumCatalogPurchases', boot=T)
+
+results9 = mediate(fit.mediator2, fit.dv9, treat='Persona2', mediator='NumCatalogPurchases', boot=T)
+
+results10 = mediate(fit.mediator2, fit.dv10, treat='Persona2', mediator ='NumCatalogPurchases', boot=T)
+
+results11 = mediate(fit.mediator3, fit.dv11, treat='Persona2', mediator='NumStorePurchases', boot=T)
+
+results12 = mediate(fit.mediator3, fit.dv12, treat='Persona2', mediator='NumStorePurchases', boot=T)
+
+results13 = mediate(fit.mediator3, fit.dv13, treat='Persona2', mediator='NumStorePurchases', boot=T)
+
+results14 = mediate(fit.mediator3, fit.dv14, treat='Persona2', mediator='NumStorePurchases', boot=T)
+
+results15 = mediate(fit.mediator3, fit.dv15, treat='Persona2', mediator='NumStorePurchases', boot=T)
+
+#Step 5: results
+
+summary(results1)
+summary(results2)
+summary(results3)
+summary(results4)
+summary(results5)
+summary(results6)
+summary(results7)
+summary(results8)
+summary(results9)
+summary(results10)
+summary(results11)
+summary(results12)
+summary(results13)
+summary(results14)
+summary(results15)
 
 ##Beginning Hypothesis 4
+
+#Persona 1:
+
+#Persona 2:
