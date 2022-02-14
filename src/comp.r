@@ -20,7 +20,8 @@ library(mediation)
 full_data <- read.csv(file.choose())
 View(full_data)
 #import cleaned dataset with variables for project
-clean_data <- read.csv(file.choose())
+#clean_data <- read.csv(file.choose())
+clean_data <- Cleaned_Data_no_persona_marketing_data_1_
 View(clean_data)
 
 #creating a combined family size column
@@ -293,7 +294,7 @@ cor(clean_data$Income, clean_data$MntSweetProducts, method ="pearson", use = "co
 t.test(data = clean_data, clean_data$Income, clean_data$MntSweetProducts)
 
 # create the linear models
-modOnein <- lm(Mntwines ~ Income,data = clean_data)
+modOnein <- lm(MntWines ~ Income,data = clean_data)
 modTwoin <- lm(MntFruits ~ Income,data = clean_data)
 modThreein <- lm(MntMeatProducts ~ Income,data = clean_data)
 modFourin <- lm(MntFishProducts ~ Income,data = clean_data)
