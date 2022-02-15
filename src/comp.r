@@ -20,8 +20,7 @@ library(mediation)
 full_data <- read.csv(file.choose())
 View(full_data)
 #import cleaned dataset with variables for project
-#clean_data <- read.csv(file.choose())
-clean_data <- Cleaned_Data_no_persona_marketing_data_1_
+clean_data <- read.csv(file.choose(), colClasses=c("KidBinary"="character", "IncBinary"="character", "MarBinary"="character", "AgeBinary"="character", "EdBinary"="character"))
 View(clean_data)
 
 #creating a combined family size column
