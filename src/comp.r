@@ -19,6 +19,7 @@ library(mediation)
 # Load CSV data
 full_data <- read.csv(file.choose())
 View(full_data)
+
 #import cleaned dataset with variables for project
 clean_data <- read.csv(file.choose(), colClasses=c("KidBinary"="character", "IncBinary"="character", "MarBinary"="character", "AgeBinary"="character", "EdBinary"="character"))
 View(clean_data)
@@ -366,23 +367,23 @@ clean_data %>% ggplot(aes(x = Family_Size, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Marital Status vs discount purchase
-cor(clean_data$Marital_Status, clean_data$NumDealsPurchases, method ="pearson")
-t.test(data = clean_data, clean_data$Marital_Status, clean_data$NumDealsPurchases)
+cor(clean_data$MarScore, clean_data$NumDealsPurchases, method ="pearson")
+t.test(data = clean_data, clean_data$MarScore, clean_data$NumDealsPurchases)
 # create the linear model
-modOnemardis <- lm(Marital_Status ~ NumDealsPurchases,data = clean_data)
+modOnemardis <- lm(MarScore ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOnemardis)
-clean_data %>% ggplot(aes(x = Marital_Status, y = NumDealsPurchases)) +
+clean_data %>% ggplot(aes(x = MarScore, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Education vs discount purchase
-cor(clean_data$Education, clean_data$NumDealsPurchases, method ="pearson")
-t.test(data = clean_data, clean_data$Education, clean_data$NumDealsPurchases)
+cor(clean_data$EdScore, clean_data$NumDealsPurchases, method ="pearson")
+t.test(data = clean_data, clean_data$EdScore, clean_data$NumDealsPurchases)
 # create the linear model
-modOneeddis <- lm(Education ~ NumDealsPurchases,data = clean_data)
+modOneeddis <- lm(EdScore ~ NumDealsPurchases,data = clean_data)
 # run the linear model
 summary(modOneeddis)
-clean_data %>% ggplot(aes(x = Education, y = NumDealsPurchases)) +
+clean_data %>% ggplot(aes(x = EdScore, y = NumDealsPurchases)) +
   geom_point(alpha = I(1/4)) + geom_smooth(method = lm)
 
 #Income vs discount purchase
