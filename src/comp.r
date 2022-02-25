@@ -751,7 +751,7 @@ fit.dv2=lm(NumDealsPurchases~Persona1+NumCatalogPurchases,data=clean_data)
 summary(fit.dv2)
 
 #(c)
-fit.dv3=lm(NunDealsPurchases~Persona1+NumStorePurchases,data=clean_data)
+fit.dv3=lm(NumDealsPurchases~Persona1+NumStorePurchases,data=clean_data)
 summary(fit.dv3)
 
 #Step 4: mediation analyses
@@ -762,7 +762,7 @@ results1 = mediate(fit.mediator1, fit.dv1, treat='Persona1', mediator='NumWebPur
 results2 = mediate(fit.mediator2, fit.dv2, treat='Persona1', mediator='NumCatalogPurchases', boot=T)
 
 #(c)
-results3 = mediate(fit.mediator3, fit.dv3, treat='Persona1', mediator='NumStorePurhcases', boot=T)
+results3 = mediate(fit.mediator3, fit.dv3, treat='Persona1', mediator='NumStorePurchases', boot=T)
 
 #Step 5: results
 
@@ -799,7 +799,7 @@ fit.dv2=lm(NumDealsPurchases~Persona2+NumCatalogPurchases,data=clean_data)
 summary(fit.dv2)
 
 #(c)
-fit.dv3=lm(NunDealsPurchases~Persona2+NumStorePurchases,data=clean_data)
+fit.dv3=lm(NumDealsPurchases~Persona2+NumStorePurchases,data=clean_data)
 summary(fit.dv3)
 
 #Step 4: mediation analyses
@@ -810,7 +810,7 @@ results1 = mediate(fit.mediator1, fit.dv1, treat='Persona2', mediator='NumWebPur
 results2 = mediate(fit.mediator2, fit.dv2, treat='Persona2', mediator='NumCatalogPurchases', boot=T)
 
 #(c)
-results3 = mediate(fit.mediator3, fit.dv3, treat='Persona2', mediator='NumStorePurhcases', boot=T)
+results3 = mediate(fit.mediator3, fit.dv3, treat='Persona2', mediator='NumStorePurchases', boot=T)
 
 #Step 5: results
 
