@@ -400,7 +400,7 @@ clean_data %>% ggplot(aes(x = Income, y = NumDealsPurchases)) +
 
 #Persona 1:
 
-#Step 1: Total persona score vs individual goods linear regressions
+#Step 1: Persona vs individual goods linear regressions
 #(a)
 fit.totaleffect1=lm(MntWines~Persona1, data=clean_data)
 summary(fit.totaleffect1)
@@ -421,7 +421,7 @@ summary(fit.totaleffect4)
 fit.totaleffect5=lm(MntSweetProducts~Persona1, data=clean_data)
 summary(fit.totaleffect5)
 
-#Step 2: Linear regressions with mediator (channel method) and personas
+#Step 2: Linear regressions with mediator (channel method) and persona
 #(a)
 fit.mediator1=lm(NumWebPurchases~Persona1, data=clean_data)
 summary(fit.mediator1)
@@ -472,7 +472,7 @@ fit.dv9=lm(MntFishProducts~Persona1+NumCatalogPurchases,data=clean_data)
 summary(fit.dv9)
 
 #(e)(b)
-fit.dv10=lm(MntSweetProducts~Persona1+CatalogPurchases,data=clean_data)
+fit.dv10=lm(MntSweetProducts~Persona1+NumCatalogPurchases,data=clean_data)
 summary(fit.dv10)
 
 #(a)(c)
@@ -503,7 +503,7 @@ results1 = mediate(fit.mediator1, fit.dv1, treat='Persona1', mediator='NumWebPur
 results2 = mediate(fit.mediator1, fit.dv2, treat='Persona1', mediator='NumWebPurchases', boot=T)
 
 #(c)(a)
-results3 = mediate(fit.mediator1, fit.dv3, treat='Persona1', mediator='NumWebPurhcases', boot=T)
+results3 = mediate(fit.mediator1, fit.dv3, treat='Persona1', mediator='NumWebPurchases', boot=T)
 
 #(d)(a)
 results4 = mediate(fit.mediator1, fit.dv4, treat='Persona1', mediator='NumWebPurchases', boot=T)
