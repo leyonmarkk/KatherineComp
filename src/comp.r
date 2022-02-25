@@ -633,7 +633,7 @@ fit.dv9=lm(MntFishProducts~Persona2+NumCatalogPurchases,data=clean_data)
 summary(fit.dv9)
 
 #(e)(b)
-fit.dv10=lm(MntSweetProducts~Persona2+CatalogPurchases,data=clean_data)
+fit.dv10=lm(MntSweetProducts~Persona2+NumCatalogPurchases,data=clean_data)
 summary(fit.dv10)
 
 #(a)(c)
@@ -664,7 +664,7 @@ results1 = mediate(fit.mediator1, fit.dv1, treat='Persona2', mediator='NumWebPur
 results2 = mediate(fit.mediator1, fit.dv2, treat='Persona2', mediator='NumWebPurchases', boot=T)
 
 #(c)(a)
-results3 = mediate(fit.mediator1, fit.dv3, treat='Persona2', mediator='NumWebPurhcases', boot=T)
+results3 = mediate(fit.mediator1, fit.dv3, treat='Persona2', mediator='NumWebPurchases', boot=T)
 
 #(d)(a)
 results4 = mediate(fit.mediator1, fit.dv4, treat='Persona2', mediator='NumWebPurchases', boot=T)
